@@ -1,0 +1,18 @@
+Analysis Questions 
+1. A word-writable directory like uploads is more dangerous than a world-writable file because the word-writable direcotry 
+gives an attacker full control over everyhting that is inside of it. An attacker can delelte imporant files, place harful files etc. 
+A word-writable file doesn't give this full access because someone is only allowed to edit that one file. 
+
+2. Perm -002 is used to find file that anyone can write to so it has the word-wirte bit turned on. 
+Perm /111 is used to find files that are executbale meaning that they would run like a program and any execute bit is on.
+There are two different options because they serve two different security purposes. 
+
+3. You should make sure that no files were tampered with , you would remove the word-write permission, and if 
+any files were to be tampered with than you would restore those files. 
+
+4. Usinf find ... | while read creates a subshell and anything that occurs in the subshell won't be saved since the 
+subshell is temporary .while read ... done < <(find ...) doesn't create a subshell so the loop that runs won't disappear. 
+The difference is the the loop run in the current shell with while read ... done < <(find ...).
+
+5. You would use a tool that runs task automatically on a schedule then you would add this line
+0 2 * * * /path/to/script.sh | mail -s "Daily Security Scan" security@example.com
